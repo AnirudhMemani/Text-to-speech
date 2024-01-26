@@ -7,11 +7,13 @@ import { twMerge } from "tailwind-merge";
 type StaggeredDropDownProps = {
   voiceId: number;
   setVoiceId: React.Dispatch<SetStateAction<number>>;
+  setIsNavMenuVisible: React.Dispatch<SetStateAction<boolean>>;
 };
 
 const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
   voiceId,
   setVoiceId,
+  setIsNavMenuVisible,
 }): React.JSX.Element => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +61,7 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
   ];
 
   return (
-    <div className="flex items-center mr-4 justify-center text-white bg-transparent">
+    <div className="flex mx-4 items-center mr-4 justify-center text-white bg-transparent">
       <motion.div
         animate={open ? "open" : "closed"}
         className="relative"
@@ -81,7 +83,7 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 py-1 rounded-lg bg-black shadow-sm shadow-violet-700 absolute top-[120%] left-[50%] w-48 overflow-hidden"
+          className="flex flex-col gap-2 py-1 rounded-lg bg-transparent lg:bg-black lg:shadow-sm lg:shadow-violet-700 absolute left-[220%] top-0 lg:top-[120%] lg:left-[50%] w-48 overflow-hidden"
         >
           {voiceModels.map((models) => (
             <Option
@@ -89,9 +91,12 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
               onClick={() => {
                 setOpen(false);
                 setVoiceId(models.id);
+                setIsNavMenuVisible(false);
               }}
               extraStyles={() => {
-                return models.id === voiceId ? "bg-sky-600" : "";
+                return models.id === voiceId
+                  ? "lg:bg-sky-600 lg:text-white text-sky-600"
+                  : "";
               }}
             />
           ))}

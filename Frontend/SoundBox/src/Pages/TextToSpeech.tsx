@@ -20,7 +20,9 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
 
   return (
     <div className="flex items-center flex-col h-dvh w-dvw bg-black text-white">
-      <h1 className="text-slate-500 mt-10 mb-4 text-4xl">AI Voice Generator</h1>
+      <h1 className="text-slate-500 mt-10 mb-4 text-3xl sm:text-4xl">
+        AI Voice Generator
+      </h1>
       <p className="text-slate-300 text-2xl mb-14">
         Write and Listen<span className="text-yellow-400 text-4xl">.</span>
       </p>
@@ -45,7 +47,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
         />
         <input
           type="submit"
-          className="px-14 cursor-pointer py-3 rounded-sm mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
+          className="px-14 cursor-pointer sm:mb-0 mb-2 h-[10%] sm:py-3 rounded-sm mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
           title="Submit"
         />
       </form>
