@@ -8,6 +8,9 @@ function playAudio(audioUrl: string) {
 }
 
 export async function getUrlAndPlayAudio(userInput: string) {
+  if (userInput.length < 1) {
+    userInput = "Please pass some input!";
+  }
   const requestBody = {
     text: userInput,
   };

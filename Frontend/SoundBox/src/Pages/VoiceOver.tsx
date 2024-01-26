@@ -4,7 +4,7 @@ import Dictaphone from "../Components/Dicaphone";
 import { useSpeechRecognition } from "react-speech-recognition";
 import { getUrlAndPlayAudio } from "../Utils/helpers";
 
-const VoiceOver: React.FC = (): React.JSX.Element => {
+const SpeechToSpeech: React.FC = (): React.JSX.Element => {
   const { listening } = useSpeechRecognition();
 
   const [text, setText] = useState<string>("");
@@ -26,4 +26,4 @@ const VoiceOver: React.FC = (): React.JSX.Element => {
   );
 };
 
-export default VoiceOver;
+export default SpeechToSpeech;

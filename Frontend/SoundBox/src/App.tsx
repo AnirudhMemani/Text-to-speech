@@ -1,6 +1,6 @@
 import "regenerator-runtime/runtime";
 import { Route, Routes } from "react-router-dom";
-import VoiceOver from "./Pages/VoiceOver";
+import SpeechToSpeech from "./Pages/VoiceOver";
 import TextToSpeech from "./Pages/TextToSpeech";
 import { ROUTES } from "./Utils/constants";
 import Navbar from "./Components/Navbar";
@@ -18,8 +18,8 @@ function App() {
           element={<TextToSpeech />}
         />
         <Route
-          path={ROUTES.VOICE_OVER}
-          element={<VoiceOver />}
+          path={ROUTES.SPEECH_TO_SPEECH}
+          element={<SpeechToSpeech />}
         />
       </Routes>
     </div>

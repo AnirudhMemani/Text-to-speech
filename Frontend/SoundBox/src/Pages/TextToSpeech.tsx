@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { getUrlAndPlayAudio } from "../Utils/helpers";
 
 const TextToSpeech: React.FC = () => {
   const [userInput, setUserInput] = useState<string>("");
+
+  const handleEnterKeyPressed = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      getUrlAndPlayAudio(userInput);
+      // setUserInput("");
+    }
+  };
 
   return (
     <div className="flex items-center flex-col h-dvh w-dvw bg-black text-white">
@@ -15,7 +23,7 @@ const TextToSpeech: React.FC = () => {
         onSubmit={(e) => {
           e.preventDefault();
           getUrlAndPlayAudio(userInput);
-          setUserInput("");
+          // setUserInput("");
         }}
       >
         <textarea
@@ -24,13 +32,14 @@ const TextToSpeech: React.FC = () => {
           cols={10}
           wrap="soft"
           className="min-w-[40%] py-2 px-2 bg-transparent shadow-sm shadow-violet-900 border-none outline-none text-lg text-white placeholder:text-slate-500 resize-none"
-          onChange={(ev) => setUserInput(ev.target.value)}
+          onChange={(e) => setUserInput(e.target.value)}
           value={userInput}
           placeholder="Write your input here"
+          onKeyDown={handleEnterKeyPressed}
         />
         <input
           type="submit"
-          className="px-14 cursor-pointer py-3 rounded-sm mt-5 bg-transparent border border-slate-500 hover:scale-105"
+          className="px-14 cursor-pointer py-3 rounded-sm mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
           title="Submit"
         />
       </form>
