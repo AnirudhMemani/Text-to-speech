@@ -32,10 +32,14 @@ const Dictaphone: React.FC<{
       <p className="text-2xl text-slate-500">
         Microphone: {listening ? "on" : "off"}
       </p>
-      <div className="flex w-full bg-transparent my-10 gap-12 items-center justify-center">
+      <h3 className="text-2xl text-slate-500 my-4">Transcript</h3>
+      <div className="border-2 border-gray-700 outline-none w-[90%] sm:w-[600px] min-h-[250px] sm:min-h-[300px] text-white bg-transparent">
+        <p className="text-slate-500 px-2">{text}</p>
+      </div>
+      <div className="flex sm:flex-row flex-col w-full bg-transparent my-10 gap-4 sm:gap-12 items-center justify-center">
         <button
           onClick={() => SpeechRecognition.startListening({ continuous: true })}
-          className="px-14 cursor-pointer py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="sm:px-14 w-[90%] sm:w-fit cursor-pointer py-4 sm:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
         >
           Start
         </button>
@@ -44,29 +48,16 @@ const Dictaphone: React.FC<{
             SpeechRecognition.stopListening();
             resetTranscript();
           }}
-          className="px-14 cursor-pointer py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="sm:px-14 w-[90%] sm:w-fit cursor-pointer py-4 sm:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
         >
           Stop
         </button>
         <button
           onClick={resetTranscript}
-          className="px-14 cursor-pointer py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="sm:px-14 w-[90%] sm:w-fit cursor-pointer py-4 sm:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
         >
           Reset
         </button>
-      </div>
-      <h3 className="text-2xl text-slate-500">Transcript</h3>
-      <div
-        style={{
-          border: "1px solid gray",
-          outline: "none",
-          width: "600px",
-          minHeight: "300px",
-          color: "white",
-          backgroundColor: "transparent",
-        }}
-      >
-        <p className="text-slate-500 px-2">{text}</p>
       </div>
     </div>
   );

@@ -7,12 +7,14 @@ function playAudio(audioUrl: string) {
   audio.play();
 }
 
-export async function getUrlAndPlayAudio(userInput: string) {
+export async function getUrlAndPlayAudio(userInput: string, voiceId: number) {
   if (userInput.length < 1) {
     userInput = "Please pass some input!";
   }
+  console.log("getUrlAndPlayAudio() => voiceId in requestBody:", voiceId);
   const requestBody = {
     text: userInput,
+    voiceId: voiceId,
   };
   const response = await axios.post(
     "http://localhost:3000/audio-stream",

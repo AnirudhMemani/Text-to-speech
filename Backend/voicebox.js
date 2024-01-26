@@ -6,8 +6,38 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+const voices = [
+  {
+    id: 1,
+    model: "Charlotte (F)",
+    name: "en-GB-Wavenet-A",
+  },
+  {
+    id: 2,
+    model: "John (M)",
+    name: "en-GB-Wavenet-B",
+  },
+  {
+    id: 3,
+    model: "Rebecca (F)",
+    name: "en-GB-Wavenet-C",
+  },
+  {
+    id: 4,
+    model: "Robert (M)",
+    name: "en-GB-Wavenet-D",
+  },
+  {
+    id: 5,
+    model: "Louise (F)",
+    name: "en-GB-Wavenet-F",
+  },
+];
+
 app.post("/audio-stream", async (req, res) => {
   const text = req.body.text;
+  const voiceId = req.body.voiceId;
+  const voiceModel = voices.filter((voice) => voice.id === voiceId);
   try {
     const apiUrl =
       "https://ivcqahposk.execute-api.eu-central-1.amazonaws.com/prod/audio";
@@ -30,14 +60,15 @@ app.post("/audio-stream", async (req, res) => {
         "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
     };
 
+    // ssml: '<speak><prosody pitch="0.38"> ' + text + ".</prosody></speak>",
     const requestBody = {
       input: {
-        ssml: '<speak><prosody pitch="0.38"> ' + text + ".</prosody></speak>",
+        ssml: "<speak>" + text + "</speak>",
       },
       voice: {
         languageCode: "en-GB",
-        name: "en-GB-Wavenet-B",
-        ssmlGender: "John (M)",
+        name: voiceModel[0].name,
+        ssmlGender: voiceModel[0].model,
       },
       audioConfig: {},
     };

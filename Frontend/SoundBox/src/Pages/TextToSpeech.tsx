@@ -1,14 +1,20 @@
 import { useState, KeyboardEvent } from "react";
 import { getUrlAndPlayAudio } from "../Utils/helpers";
 
-const TextToSpeech: React.FC = () => {
+type TextToSpeechProps = {
+  voiceId: number;
+};
+
+const TextToSpeech: React.FC<TextToSpeechProps> = ({
+  voiceId,
+}): React.JSX.Element => {
   const [userInput, setUserInput] = useState<string>("");
 
   const handleEnterKeyPressed = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      getUrlAndPlayAudio(userInput);
-      // setUserInput("");
+      console.log("TextToSpeech() => voiceId:", voiceId);
+      getUrlAndPlayAudio(userInput, voiceId);
     }
   };
 
@@ -22,8 +28,8 @@ const TextToSpeech: React.FC = () => {
         className="flex flex-col items-center transition-all duration-300 ease-in-out w-full h-full"
         onSubmit={(e) => {
           e.preventDefault();
-          getUrlAndPlayAudio(userInput);
-          // setUserInput("");
+          console.log("TextToSpeech() => voiceId:", voiceId);
+          getUrlAndPlayAudio(userInput, voiceId);
         }}
       >
         <textarea
@@ -31,7 +37,7 @@ const TextToSpeech: React.FC = () => {
           rows={14}
           cols={10}
           wrap="soft"
-          className="min-w-[40%] py-2 px-2 bg-transparent shadow-sm shadow-violet-900 border-none outline-none text-lg text-white placeholder:text-slate-500 resize-none"
+          className="min-w-[70%] xl:min-w-[40%] py-2 px-2 bg-transparent shadow-sm shadow-violet-900 border-none outline-none text-lg text-white placeholder:text-slate-500 resize-none"
           onChange={(e) => setUserInput(e.target.value)}
           value={userInput}
           placeholder="Write your input here"
