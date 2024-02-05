@@ -12,11 +12,13 @@ function App() {
   const location = useLocation();
 
   function getIsPageNotFound(currentPathname: string): boolean {
+    console.log("currentPathname:", currentPathname);
     const definedPaths = Object.values(ROUTES);
     const result = definedPaths.find(
       (paths) => paths == currentPathname.substring(1)
     );
-    return result ? false : true;
+    console.log("result:", result);
+    return result !== undefined ? false : true;
   }
 
   const isPageNotFound = getIsPageNotFound(location.pathname);
