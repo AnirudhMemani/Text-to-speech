@@ -1,5 +1,5 @@
 import { useState, KeyboardEvent } from "react";
-import { getUrlAndPlayAudio } from "../Utils/helpers";
+import { getUrlAndPlayAudio, replayAudio } from "../Utils/helpers";
 
 type TextToSpeechProps = {
   voiceId: number;
@@ -9,11 +9,15 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
   voiceId,
 }): React.JSX.Element => {
   const [userInput, setUserInput] = useState<string>("");
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   const handleEnterKeyPressed = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       console.log("TextToSpeech() => voiceId:", voiceId);
+      if (userInput.length > 0) {
+        setIsDisabled(false);
+      }
       getUrlAndPlayAudio(userInput, voiceId);
     }
   };
@@ -31,6 +35,9 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
         onSubmit={(e) => {
           e.preventDefault();
           console.log("TextToSpeech() => voiceId:", voiceId);
+          if (userInput.length > 0) {
+            setIsDisabled(false);
+          }
           getUrlAndPlayAudio(userInput, voiceId);
         }}
       >
@@ -45,11 +52,20 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
           placeholder="Write your input here"
           onKeyDown={handleEnterKeyPressed}
         />
-        <input
-          type="submit"
-          className="px-14 cursor-pointer sm:mb-0 mb-2 h-[10%] sm:py-3 rounded-sm mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
-          title="Submit"
-        />
+        <div className="flex md:flex-row flex-col md:h-fit h-[30%] md:w-fit w-[70%] md:gap-14 gap-4">
+          <input
+            type="submit"
+            className="md:px-14 h-full cursor-pointer mb-0 md:py-3 rounded-md mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
+            title="Submit"
+          />
+          <input
+            type="button"
+            className="md:px-14 cursor-pointer mb-0 h-full md:py-3 rounded-md md:mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100 disabled:scale-100 disabled:cursor-not-allowed"
+            value={"Replay"}
+            onClick={replayAudio}
+            disabled={isDisabled}
+          />
+        </div>
       </form>
     </div>
   );

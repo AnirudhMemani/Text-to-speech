@@ -17,6 +17,8 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
 }): React.JSX.Element => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const [selectedModelName, setSelectedModelName] =
+    useState<string>("Charlotte (female)");
 
   useEffect(() => {
     const closeDropdown = (event: MouseEvent) => {
@@ -72,7 +74,7 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
           className="flex items-center justify-between rounded-md text-white bg-transparent transition-colors"
         >
           <span className="font-normal mr-2 text-base text-white">
-            Select voice
+            {selectedModelName}
           </span>
           <motion.span variants={iconVariants}>
             <FiChevronDown />
@@ -87,10 +89,12 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
         >
           {voiceModels.map((models) => (
             <Option
+              key={models.id}
               text={models.model}
               onClick={() => {
                 setOpen(false);
                 setVoiceId(models.id);
+                setSelectedModelName(models.model);
                 setIsNavMenuVisible(false);
               }}
               extraStyles={() => {
