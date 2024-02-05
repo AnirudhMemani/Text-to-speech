@@ -17,7 +17,7 @@ export async function getUrlAndPlayAudio(userInput: string, voiceId: number) {
     voiceId: voiceId,
   };
   const response = await axios.post(
-    "http://localhost:3000/audio-stream",
+    "https://nodejs-production-2e12.up.railway.app/audio-stream",
     requestBody
   );
   playAudio(response.data);
