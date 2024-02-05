@@ -17,7 +17,7 @@ function App() {
       />
       <Routes>
         <Route
-          path="/"
+          path={""}
           element={<TextToSpeech voiceId={voiceId} />}
         />
         <Route
