@@ -2,7 +2,7 @@ import "regenerator-runtime/runtime";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import { SetStateAction, useEffect } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { replayAudio } from "../Utils/helpers";
 
 const Dictaphone: React.FC<{
@@ -15,6 +15,8 @@ const Dictaphone: React.FC<{
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
+
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   useEffect(() => {
     setText(transcript);
@@ -46,6 +48,7 @@ const Dictaphone: React.FC<{
         </button>
         <button
           onClick={() => {
+            setIsDisabled(false);
             SpeechRecognition.stopListening();
             resetTranscript();
           }}
@@ -61,7 +64,8 @@ const Dictaphone: React.FC<{
         </button>
         <button
           onClick={replayAudio}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+          disabled={isDisabled}
         >
           Replay
         </button>

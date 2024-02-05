@@ -6,6 +6,7 @@ import { ROUTES } from "./Utils/constants";
 import Navbar from "./Components/Navbar";
 import { useState } from "react";
 import NotFound from "./Pages/NotFound";
+import Footer from "./Components/Footer";
 
 function App() {
   const [voiceId, setVoiceId] = useState(1);
@@ -47,6 +48,7 @@ function App() {
           element={<NotFound />}
         />
       </Routes>
+      {!isPageNotFound && <Footer />}
     </div>
   );
 }
