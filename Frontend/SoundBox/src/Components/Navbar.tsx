@@ -19,10 +19,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const routesArr = [ROUTES.TEXT_TO_SPEECH, ROUTES.SPEECH_TO_SPEECH];
   const [isNavMenuVisible, setIsNavMenuVisible] = useState<boolean>(false);
   return (
-    <div className="sticky w-full h-24 transition-all duration-200 ease-in-out flex justify-between lg:justify-center items-center shadow-sm shadow-violet-800">
+    <div className="sticky w-full h-24 transition-all duration-200 ease-in-out flex max-[260px]:justify-end justify-between lg:justify-center items-center shadow-sm shadow-violet-800">
       <img
         src={logo}
-        className="lg:hidden inline mx-4 w-36 h-[70%]"
+        className=" lg:hidden inline mx-4 max-[260px]:hidden w-36 h-[70%]"
       />
       <div
         className={twMerge(

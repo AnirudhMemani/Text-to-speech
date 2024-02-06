@@ -17,14 +17,13 @@ const SpeechToSpeech: React.FC<SpeechToSpeechProps> = ({
 
   useEffect(() => {
     if (!listening && text?.length > 0) {
-      console.log("SpeechToSpeech() => voiceId:", voiceId);
       getUrlAndPlayAudio(text, voiceId);
       setText("");
     }
   }, [listening]);
 
   return (
-    <div className="flex justify-center items-center w-dvw h-dvh bg-black text-white">
+    <div className="flex justify-center w-dvw min-h-dvh bg-black text-white">
       <Dictaphone
         setText={setText}
         text={text}
