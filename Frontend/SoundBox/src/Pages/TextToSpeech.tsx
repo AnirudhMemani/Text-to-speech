@@ -55,12 +55,12 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
         <div className="flex md:flex-row flex-col md:h-fit h-[30%] md:w-fit w-[90%] sm:w-[70%] md:mb-0 mb-4 md:gap-14 gap-4">
           <input
             type="submit"
-            className="md:px-14 h-full cursor-pointer mb-0 py-3 rounded-md mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100"
+            className="md:px-14 h-full cursor-pointer mb-0 py-3 rounded-md mt-5 bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105"
             title="Submit"
           />
           <input
             type="button"
-            className="md:px-14 cursor-pointer mb-0 h-full py-3 rounded-md md:mt-5 bg-transparent border border-slate-500 hover:scale-105 active:scale-100 disabled:scale-100 disabled:cursor-not-allowed"
+            className="md:px-14 cursor-pointer mb-0 h-full py-3 rounded-md md:mt-5 bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
             value={"Replay"}
             onClick={replayAudio}
             disabled={isDisabled}

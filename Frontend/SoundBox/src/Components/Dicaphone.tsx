@@ -42,7 +42,7 @@ const Dictaphone: React.FC<{
       <div className="flex md:flex-row flex-col w-full bg-transparent my-10 gap-4 md:gap-8 items-center justify-center">
         <button
           onClick={() => SpeechRecognition.startListening({ continuous: true })}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105"
         >
           Start
         </button>
@@ -52,19 +52,19 @@ const Dictaphone: React.FC<{
             SpeechRecognition.stopListening();
             resetTranscript();
           }}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105"
         >
           Stop
         </button>
         <button
           onClick={resetTranscript}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105"
         >
           Reset
         </button>
         <button
           onClick={replayAudio}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
           disabled={isDisabled}
         >
           Replay
