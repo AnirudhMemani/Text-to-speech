@@ -28,7 +28,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
         AI Voice Generator
       </h1>
       <p className="text-slate-300 text-2xl mb-8">
-        Write and Listen<span className="text-yellow-400 text-4xl">.</span>
+        Write and Listen<span className="text-yellow-400 font-bold">.</span>
       </p>
       <form
         className="flex flex-col items-center transition-all duration-300 ease-in-out w-full h-full"

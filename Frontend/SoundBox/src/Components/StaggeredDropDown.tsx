@@ -85,7 +85,7 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 py-1 rounded-lg bg-transparent lg:bg-black lg:shadow-sm lg:shadow-violet-700 absolute left-[220%] top-0 lg:top-[120%] lg:left-[50%] w-48 overflow-hidden"
+          className="flex flex-col gap-2 py-1 rounded-lg bg-black shadow-sm shadow-violet-700 absolute top-[120%] left-[100%] lg:left-[50%] w-48 overflow-hidden"
         >
           {voiceModels.map((models) => (
             <Option

@@ -6,7 +6,7 @@ const Footer: React.FC = (): React.JSX.Element => {
       <p className="sm:text-lg sm:ml-0 ml-4 md:text-xl">
         Copyright by Anirudh | All Rights Reserved.
       </p>
-      <div className="sm:absolute flex gap-4 sm:mx-0 mx-4 right-20">
+      <div className="sm:absolute flex gap-4 sm:mx-0 mx-4 sm:right-20">
         <a
           className="no-underline"
           target="_blank"
