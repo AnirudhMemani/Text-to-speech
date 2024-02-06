@@ -18,7 +18,7 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [selectedModelName, setSelectedModelName] =
-    useState<string>("Charlotte (female)");
+    useState<string>("Charlotte (F)");
 
   useEffect(() => {
     const closeDropdown = (event: MouseEvent) => {
@@ -42,23 +42,23 @@ const StaggeredDropDown: React.FC<StaggeredDropDownProps> = ({
   const voiceModels = [
     {
       id: 1,
-      model: "Charlotte (female)",
+      model: "Charlotte (F)",
     },
     {
       id: 2,
-      model: "John (male)",
+      model: "John (M)",
     },
     {
       id: 3,
-      model: "Rebecca (female)",
+      model: "Rebecca (F)",
     },
     {
       id: 4,
-      model: "Robert (male)",
+      model: "Robert (M)",
     },
     {
       id: 5,
-      model: "Louise (female)",
+      model: "Louise (F)",
     },
   ];
 

@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({
     >
       <img
         src={logo}
-        className=" lg:hidden inline mx-4 max-[260px]:hidden w-36 h-[70%]"
+        className=" lg:hidden inline mx-4 max-[260px]:w-full w-36 h-full"
         onClick={() => setIsNavMenuVisible(false)}
       />
       <div
