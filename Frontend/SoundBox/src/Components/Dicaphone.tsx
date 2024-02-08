@@ -64,7 +64,7 @@ const Dictaphone: React.FC<{
         </button>
         <button
           onClick={replayAudio}
-          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+          className="md:px-14 w-[90%] md:w-fit cursor-pointer py-4 md:py-3 rounded-sm bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:hover:scale-100 disabled:active:scale:100 disabled:cursor-not-allowed"
           disabled={isDisabled}
         >
           Replay

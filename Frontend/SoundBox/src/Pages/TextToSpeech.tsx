@@ -60,7 +60,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
           />
           <input
             type="button"
-            className="md:px-14 cursor-pointer mb-0 h-full py-3 rounded-md md:mt-5 bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+            className="md:px-14 cursor-pointer mb-0 h-full py-3 rounded-md md:mt-5 bg-transparent border border-slate-500 md:hover:scale-105 md:active:scale-100 active:scale-105 disabled:scale-100 disabled:hover:scale-100 disabled:active:scale:100 disabled:cursor-not-allowed"
             value={"Replay"}
             onClick={replayAudio}
             disabled={isDisabled}
