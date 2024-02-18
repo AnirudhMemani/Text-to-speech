@@ -156,8 +156,8 @@ const wrapperVariants = {
   closed: {
     scaleY: 0,
     transition: {
-      when: "afterChildren",
-      staggerChildren: 0.04,
+      when: "beforeChildren",
+      staggerChildren: 0,
     },
   },
 };
