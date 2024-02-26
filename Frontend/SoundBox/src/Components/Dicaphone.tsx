@@ -24,8 +24,9 @@ const Dictaphone: React.FC<{
 
   if (!browserSupportsSpeechRecognition) {
     return (
-      <span style={{ color: "white" }}>
-        Browser doesn't support speech recognition.
+      <span className="text-white absolute bottom-1/2 -translate-y-1/2">
+        Your browser doesn't support speech recognition. ONLY works for Google
+        Chrome right now!
       </span>
     );
   }
@@ -36,7 +37,7 @@ const Dictaphone: React.FC<{
         Microphone: {listening ? "on" : "off"}
       </p>
       <h3 className="text-2xl text-slate-500 mt-8">Transcript</h3>
-      <div className="border-2 border-gray-700 outline-none w-[90%] md:w-[700px] xl:min-w-[80%] min-h-[300px] md:min-h-[400px] xl:min-h-[500px] 2xl:min-h-[650px] text-white bg-transparent">
+      <div className="border-2 border-gray-700 outline-none w-[90%] md:w-[700px] xl:min-w-[60%] min-h-[300px] md:min-h-[400px] 2xl:min-h-[450px] text-white bg-transparent">
         <p className="text-slate-500 px-2">{text}</p>
       </div>
       <div className="flex md:flex-row flex-col w-full bg-transparent my-10 gap-4 md:gap-8 items-center justify-center">

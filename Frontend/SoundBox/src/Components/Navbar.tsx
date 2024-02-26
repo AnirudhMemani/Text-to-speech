@@ -18,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }): React.JSX.Element => {
   const routesArr = [ROUTES.TEXT_TO_SPEECH, ROUTES.SPEECH_TO_SPEECH];
   const [isNavMenuVisible, setIsNavMenuVisible] = useState<boolean>(false);
+  const [activeRoute, setActiveRoute] = useState<string>(ROUTES.TEXT_TO_SPEECH);
   const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,7 +66,11 @@ const Navbar: React.FC<NavbarProps> = ({
           <Routes
             title={route}
             key={index}
-            setIsNavMenuVisible={setIsNavMenuVisible}
+            onClick={() => {
+              setIsNavMenuVisible(false);
+              setActiveRoute(route);
+            }}
+            className={activeRoute == route ? "text-violet-700" : ""}
           />
         ))}
       </div>
