@@ -46,7 +46,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({
           rows={14}
           cols={10}
           wrap="soft"
-          className="min-w-[90%] sm:min-w-[70%] xl:min-w-[40%] py-2 px-2 bg-transparent shadow-sm shadow-violet-900 border-none outline-none text-lg text-white placeholder:text-slate-500 resize-none"
+          className="min-w-[90%] sm:min-w-[70%] xl:min-w-[60%] py-2 px-2 bg-transparent shadow-sm shadow-violet-900 border-none outline-none text-lg text-white placeholder:text-slate-500 resize-none"
           onChange={(e) => setUserInput(e.target.value)}
           value={userInput}
           placeholder="Write your input here"
