@@ -5,7 +5,7 @@ import TextToSpeech from "./Pages/TextToSpeech";
 import { ROUTES } from "./Utils/constants";
 import Navbar from "./Components/Navbar";
 import { useState } from "react";
-import NotFound from "./Pages/NotFound";
+import NotFound from "./Pages/PageNotFound/NotFound";
 import Footer from "./Components/Footer";
 
 function App() {
